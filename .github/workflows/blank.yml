@@ -13,7 +13,7 @@ on:
 jobs:
   repo-sync:
     env:
-      PAT: ${{ 6814b7fa44b8b788e650227bc934ea78aabffa4c }} #此处PAT需要申请，教程详见：https://www.jianshu.com/p/bb82b3ad1d11
+      PAT: ${{ secrets.PAT }} #此处PAT需要申请，教程详见：https://www.jianshu.com/p/bb82b3ad1d11
       dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
     runs-on: ubuntu-latest
     steps:
@@ -28,7 +28,7 @@ jobs:
           source_repo: "https://gitee.com/hardforyou/jd_scripts.git"
           source_branch: "act"
           destination_branch: "master"
-          github_token: ${{ 6814b7fa44b8b788e650227bc934ea78aabffa4c }}
+          github_token: ${{ secrets.PAT }}
       # 我自己同步到gitee使用，其他人可忽略
       - name: sync github -> gitee
         uses: Yikun/hub-mirror-action@master
